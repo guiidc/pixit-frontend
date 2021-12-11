@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import Consumers from './pages/Consumers';
 import CreateConsumer from './pages/CreateConsumer';
+import PasswordRecover from './pages/PasswordRecover';
+import PasswordReset from './pages/PasswordReset';
 
 function App() {
   return (
@@ -14,8 +16,8 @@ function App() {
       <Route path="/register" element={ <Register /> } />
       <Route path="/consumers" element={ <Consumers /> } />
       <Route path="/create-consumer" element={ <CreateConsumer /> } />
-      {/* <Route path="/recover-password" element={ <RecoverPassword /> } /> */}
-      {/* <Route path="/reset-pwd/:id/:email/:token" element={  <ResetPassword/> } /> */}
+      <Route path="/password-recover" element={ <PasswordRecover /> } />
+      <Route path="/password-reset/:id/:email/:token" element={  <PasswordReset/> } />
     </Routes>
   );
 }

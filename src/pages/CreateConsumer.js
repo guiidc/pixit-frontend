@@ -17,12 +17,14 @@ function CreateConsumer() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, sex, city } = e.target;
+    const token = localStorage.getItem('token')
     axiosRequest.post('consumers', {
       name: name.value,
       email: email.value,
       sex: sex.value,
       city: city.value,
-    })
+    },
+    {headers: {authorization: token}})
     .then(() => navigate('/consumers'))
     .catch((err) => setErrors(err.response.data.message))
 
@@ -47,7 +49,6 @@ function CreateConsumer() {
       <form className="consumer-form flex-column" onSubmit={ handleSubmit }>
         <input type="text" placeholder="nome" name="name" required/>
         <input type="email" placeholder="e-mail" name="email" required/>
-        <input type="text" placeholder="sex" name="sex" required/>
         <input type="text" placeholder="city" name="city" required/>
         <select name="sex" required>
           <option value="" defaultValue>Escolha o sexo</option>
