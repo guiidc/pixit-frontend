@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosRequest from '../utils/axiosRequest'
+import icon from '../images/consumer.svg';
 
 function CreateConsumer() {
   const [errors, setErrors] = useState('');
@@ -45,7 +46,7 @@ function CreateConsumer() {
       </div>
     </nav>
     <div className="flex-column">
-      <img src="./icons/consumer.svg" alt="consumer icon"></img>
+      <img src={ icon } alt="consumer icon"></img>
       <form className="consumer-form flex-column" onSubmit={ handleSubmit }>
         <input type="text" placeholder="nome" name="name" required/>
         <input type="email" placeholder="e-mail" name="email" required/>

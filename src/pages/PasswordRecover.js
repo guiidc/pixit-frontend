@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axiosRequest from '../utils/axiosRequest';
 import { useNavigate } from 'react-router-dom';
+import icon from '../images/recover.svg';
+
 
 function PasswordRecover() {
   const [message, setMessage] = useState('');
@@ -23,7 +25,7 @@ function PasswordRecover() {
   return (
     <div className="main-container bg-radial flex-column">
       <form className="form flex-column" onSubmit={ handleSubmit }>
-        <img src="./icons/recover.svg" alt="recover password icon"/>
+        <img src={ icon } alt="recover password icon"/>
         <h1 className="form-title">Problemas?</h1>
         <p className="password-text">Insira seu e-mail e logo em seguida lhe enviaremos um link para que vc possa voltar a acessar sua conta sem problemas.</p>
         { message ? <span className="password-msg">{ message }</span> : null}

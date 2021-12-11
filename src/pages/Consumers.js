@@ -15,6 +15,10 @@ function Consumers() {
     navigate('/');
   }
 
+  const handleDetails = (id) => {
+    navigate(`/consumers/${id}`)
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) navigate('/');
@@ -52,12 +56,15 @@ function Consumers() {
           </tbody>
           <tbody>
             { consumers.map((consumer) => (
-              <tr  className="consumer" key={ consumer.id }>
-                <td>{ consumer.id }</td>
-                <td>{ consumer.name }</td>
-                <td>{ consumer.email }</td>
-                <td>{ consumer.sex }</td>
-                <td>{ consumer.city }</td>
+              <tr
+                className="consumer" key={ consumer.id }
+                onClick={ () => handleDetails(consumer.id) }
+              >
+                  <td>{ consumer.id }</td>
+                  <td>{ consumer.name }</td>
+                  <td>{ consumer.email }</td>
+                  <td>{ consumer.sex }</td>
+                  <td>{ consumer.city }</td>
               </tr>
             ))}
           </tbody>
