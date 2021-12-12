@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Desafio Pixit Front-End :rocket:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Sobre o projeto :package:
+Este projeto é uma entrevista técnica para a empresa Pixit, onde há a intenção de testar os conhecimentos através de um CRUD básico.
 
-## Available Scripts
+O projeto está dividido em dois repositórios (BackEnd e FrontEnd).
 
-In the project directory, you can run:
+O backend é uma API feita em NodeJS utilizando a arquitetura MSC seguindo o padrão Restful trabalhando com o banco de dados relacional MySQL, utilizando o sequelize como ORM.
 
-### `npm start`
+O frontend é uma aplicação em ReactJS, onde são feitas as requisições para a API para que possa trabalhar com os dados.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<img src="https://github.com/guiidc/pixit-backend/blob/main/screenshots/login.png?raw=true" width="500px">
+<img src="https://github.com/guiidc/pixit-backend/blob/main/screenshots/register.png?raw=true" width="500px">
+<img src="https://github.com/guiidc/pixit-backend/blob/main/screenshots/password-recover.png?raw=true" width="500px">
+<img src="https://github.com/guiidc/pixit-backend/blob/main/screenshots/password-reset.png?raw=true" width="500px">
+<img src="https://github.com/guiidc/pixit-backend/blob/main/screenshots/list.png?raw=true" width="500px">
+<img src="https://github.com/guiidc/pixit-backend/blob/main/screenshots/insert-edit.png?raw=true" width="500px">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Tecnologias utilizadas :hammer_and_wrench:
+### Back-End :earth_africa:
+- NodeJs
+- Express
+- BcryptJs
+- Validator 
+- MySQL
+- Sequelize
+- JSON Web Token
+- NoideMailer
+- DotEnv
+- Cors
 
-### `npm test`
+### Front-End :computer:
+- ReactJS
+- React Router Dom
+- Axios
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Instruções Back-End :scroll:
+1. Após clonar o repositório rode o comando `npm install` para instalar as dependências necessárias.
+2. Crie uma arquivo .env na raiz do projeto para setar as variaveis de ambiente a seguir
++ DB_USER=usuário do seu banco de dados MySQL geralmente é "root"
++ DB_PASSWORD=senha do banco de dados do seu MySQL
++ DB_HOST=endereço do banco de dados do seu MySQL caso esteja rodando localmente basta atribuir o valor localhost
+* JWT_SECRET=string secreta para gerar os tokens JEWT
+* EMAIL_USER=usuário do e-mail que irá enviar o link de recuperação de senha para os usuários
+* EMAIL_PASSWORD=senha do e-mail que irá enviar o link de recuperação de senha para os usuários
+3. Após a instalação do sequelize rode os seguintes comandos para criar as tabelas e o DB necessário 
+```
+npx sequelize-cli db:create
+npx sequelize-cli db:migrate
+npx sequelize-cli db:seed:all
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Caso não exista nenhuma porta setada no arquivo .env a porta padrão para a aplicação rodar será na porta 3001, certifique-se de que a porta em questão não está sendo utilizada no momento por outra aplicação. Para iniciar o servidor basta digitar o comando `$ npm start` no terminal
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Instruções Front-End :scroll:
+1. Após clonar o repositório execute o comando `npm install` para instalar as dependências necessárias.
+2. Verifique se o servidor Back-End está online e execute o comando `npm start` para iniciar a aplicação
+3. Obs.: A aplicação front roda na porta 3000 e faz a requisção para o back-end que está na porta 3001. Ao executar verifique se alguma dessas portas não estão sendo usadadas por outros serviços.
